@@ -1,16 +1,25 @@
-# React + Vite
+# Employee Management System (EMS)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based web application designed to manage employee tasks and dashboards efficiently. The system features role-based access for Admins and Employees to create, track, and complete tasks.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+*   **Role-Based Dashboards**: Separate views for Admin and Employee users.
+*   **Task Management**: Create new tasks, accept assignments, and mark tasks as completed or failed.
+*   **Authentication**: Secure login system for different user roles.
+*   **Real-time Tracking**: Monitor task status (New, Active, Completed, Failed) at a glance.
 
-## React Compiler
+## 📁 Project Structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The project follows a modular structure:
+*   `src/components/Auth`: Handles login and user authentication.
+*   `src/components/Dashboard`: Contains the main Admin and Employee dashboard views.
+*   `src/components/TaskList`: Modular components for different task states (Accept, Complete, Failed, New).
+*   `src/context`: Managed state and global data across the app.
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+*   **Frontend**: React.js
+*   **Styling**: Tailwind CSS (or CSS Modules)
+*   **State Management**: React Context API
+
