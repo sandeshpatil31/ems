@@ -1,76 +1,62 @@
-import React from 'react'
+import React from "react";
 
 const TaskList = () => {
   return (
-    <div id="tasklist" className='h-[250px] overflow-x-auto flex items-center justify-start gap-5 flex-nowrap w-full py-5 mt-10'>
-        <div className='flex-shrink-0 h-full w-[300px] p-5 bg-emerald-700 rounded-xl'>
-         <div className='flex justify-between items-center '>
-            <h3 className='bg-red-600 text-sm px-3 py-1 rounded'>High</h3>
-            <h4 className='text-sm'>15 April 2026</h4>
-         </div>
-         <h2 className='mt-5 text-2xl font-semibold'>Make a youtube video</h2>
-         <p className='text-sm mt-2'>
-           React Hooks, introduced in React 16.8, are JavaScript functions that let you "hook into" React state,
-            lifecycle features.
-         </p>
+    <div
+      id="tasklist"
+      className="h-[270px] overflow-x-auto flex gap-6 w-full py-5 mt-10 px-2 scroll-smooth"
+    >
+      {/* CARD */}
+      <div className="flex-shrink-0 w-[320px] p-5 bg-gradient-to-br from-emerald-600 to-emerald-800 rounded-2xl shadow-lg hover:scale-[1.03] transition-all duration-300">
+        {/* Top */}
+        <div className="flex justify-between items-center">
+          <span className="bg-red-500/20 text-red-400 text-xs px-3 py-1 rounded-full">
+            High
+          </span>
+          <span className="text-xs text-gray-200">15 April 2026</span>
         </div>
-        <div className='flex-shrink-0 h-full w-[300px] p-5 bg-blue-600 rounded-xl'>
-         <div className='flex justify-between items-center '>
-            <h3 className='bg-red-600 text-sm px-3 py-1 rounded'>High</h3>
-            <h4 className='text-sm'>15 April 2026</h4>
-         </div>
-         <h2 className='mt-5 text-2xl font-semibold'>Make a youtube video</h2>
-         <p className='text-sm mt-2'>
-           React Hooks, introduced in React 16.8, are JavaScript functions that let you "hook into" React state,
-            lifecycle features.
-         </p>
-        </div>
-        <div className='flex-shrink-0 h-full w-[300px] p-5 bg-red-600 rounded-xl'>
-         <div className='flex justify-between items-center '>
-            <h3 className='bg-red-600 text-sm px-3 py-1 rounded'>High</h3>
-            <h4 className='text-sm'>15 April 2026</h4>
-         </div>
-         <h2 className='mt-5 text-2xl font-semibold'>Make a youtube video</h2>
-         <p className='text-sm mt-2'>
-           React Hooks, introduced in React 16.8, are JavaScript functions that let you "hook into" React state,
-            lifecycle features.
-         </p>
-        </div>
-        <div className='flex-shrink-0 h-full w-[300px] p-5 bg-yellow-600 rounded-xl'>
-         <div className='flex justify-between items-center '>
-            <h3 className='bg-red-600 text-sm px-3 py-1 rounded'>High</h3>
-            <h4 className='text-sm'>15 April 2026</h4>
-         </div>
-         <h2 className='mt-5 text-2xl font-semibold'>Make a youtube video</h2>
-         <p className='text-sm mt-2'>
-           React Hooks, introduced in React 16.8, are JavaScript functions that let you "hook into" React state,
-            lifecycle features.
-         </p>
-        </div>
-        <div className='flex-shrink-0 h-full w-[300px] p-5 bg-violet-600 rounded-xl'>
-         <div className='flex justify-between items-center '>
-            <h3 className='bg-red-600 text-sm px-3 py-1 rounded'>High</h3>
-            <h4 className='text-sm'>15 April 2026</h4>
-         </div>
-         <h2 className='mt-5 text-2xl font-semibold'>Make a youtube video</h2>
-         <p className='text-sm mt-2'>
-           React Hooks, introduced in React 16.8, are JavaScript functions that let you "hook into" React state,
-            lifecycle features.
-         </p>
-        </div>
-        <div className='flex-shrink-0 h-full w-[300px] p-5 bg-pink-600 rounded-xl'>
-         <div className='flex justify-between items-center '>
-            <h3 className='bg-red-600 text-sm px-3 py-1 rounded'>High</h3>
-            <h4 className='text-sm'>15 April 2026</h4>
-         </div>
-         <h2 className='mt-5 text-2xl font-semibold'>Make a youtube video</h2>
-         <p className='text-sm mt-2'>
-           React Hooks, introduced in React 16.8, are JavaScript functions that let you "hook into" React state,
-            lifecycle features.
-         </p>
-        </div>
-    </div>
-  )
-}
 
-export default TaskList
+        {/* Title */}
+        <h2 className="mt-4 text-xl font-semibold text-white">
+          Make a YouTube Video
+        </h2>
+
+        {/* Description */}
+        <p className="text-sm text-gray-200 mt-2 leading-relaxed">
+          React Hooks let you use state and lifecycle features without writing a
+          class.
+        </p>
+
+        {/* Footer */}
+        <div className="mt-4 flex justify-between items-center">
+          <span className="text-xs text-gray-300">Assigned to Sandesh</span>
+          <button className="text-xs bg-white/20 hover:bg-white/30 px-3 py-1 rounded-full transition">
+            View
+          </button>
+        </div>
+      </div>
+
+      {/* Duplicate cards */}
+      <div className="flex-shrink-0 w-[320px] p-5 bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl shadow-lg hover:scale-[1.03] transition-all duration-300">
+        <div className="flex justify-between">
+          <span className="bg-yellow-500/20 text-yellow-300 text-xs px-3 py-1 rounded-full">
+            Medium
+          </span>
+          <span className="text-xs text-gray-200">15 April 2026</span>
+        </div>
+        <h2 className="mt-4 text-xl font-semibold text-white">Fix UI Bugs</h2>
+        <p className="text-sm text-gray-200 mt-2">
+          Improve responsiveness and layout issues.
+        </p>
+        <div className="mt-4 flex justify-between items-center">
+          <span className="text-xs text-gray-300">Assigned to Rahul</span>
+          <button className="text-xs bg-white/20 px-3 py-1 rounded-full">
+            View
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default TaskList;
