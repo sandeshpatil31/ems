@@ -1,20 +1,17 @@
 import React, { useState } from "react";
 
-const Login = () => {
+const Login = ({handleLogin }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-      const [email, setEmail] = useState("")
-      const [password, setPassword] = useState("")
-
-      const submitHandler = (e) => {
-        e.preventDefault();
-        console.log("email is", email);
-        console.log("password is", password);
-
-        setEmail("")
-        setPassword("")  // when form submit then input will be empty
-        
-      }
-
+  const submitHandler = (e) => {
+    e.preventDefault();
+    handleLogin(email, password);
+    // console.log("email is", email);
+    // console.log("password is", password);
+    setEmail("");
+    setPassword(""); // when form submit then input will be empty
+  };
 
   return (
     <div className="flex h-screen w-screen items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
@@ -23,12 +20,17 @@ const Login = () => {
           Welcome Back 👋
         </h1>
 
-        <form onSubmit={(e) => {submitHandler(e)}} className="flex flex-col gap-4">
+        <form
+          onSubmit={(e) => {
+            submitHandler(e);
+          }}
+          className="flex flex-col gap-4"
+        >
           <input
             value={email}
-            onChange={(e) =>  {
+            onChange={(e) => {
               //  console.log(e.target.value)
-               setEmail(e.target.value)
+              setEmail(e.target.value);
             }}
             required
             className="text-white outline-none bg-transparent border border-emerald-500 text-lg py-3 px-5 rounded-full placeholder:text-gray-400 focus:ring-2 focus:ring-emerald-500 transition"
@@ -37,10 +39,10 @@ const Login = () => {
           />
 
           <input
-          value={password}
-            onChange={(e) =>  {
+            value={password}
+            onChange={(e) => {
               //  console.log(e.target.value)
-               setPassword(e.target.value)
+              setPassword(e.target.value);
             }}
             required
             className="text-white outline-none bg-transparent border border-emerald-500 text-lg py-3 px-5 rounded-full placeholder:text-gray-400 focus:ring-2 focus:ring-emerald-500 transition"
@@ -48,7 +50,8 @@ const Login = () => {
             placeholder="Enter Password"
           />
 
-          <button className="bg-emerald-600 hover:bg-emerald-700 transition text-white font-semibold py-3 rounded-full mt-3 shadow-lg">
+          <button
+           className="bg-emerald-600 hover:bg-emerald-700 transition text-white font-semibold py-3 rounded-full mt-3 shadow-lg">
             Login
           </button>
 
