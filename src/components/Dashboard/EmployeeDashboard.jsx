@@ -3,12 +3,14 @@ import Header from '../other/Header'
 import TaskListCount from '../other/TaskListCount'
 import TaskList from '../TaskList/TaskList'
 
-const EmployeeDashboard = () => {
+const EmployeeDashboard = ({data}) => {
+  // console.log(data.id)
+  
   return (
     <div className='p-10 bg-[#1C1C1C] h-screen'>
-     <Header/>
-     <TaskListCount/>
-     <TaskList/>
+     <Header data={data} />
+     <TaskListCount data={data} />
+     <TaskList  data={data}/>
     </div>
   )
 }
