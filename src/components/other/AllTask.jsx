@@ -1,40 +1,38 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../context/AuthProvider";
 
 const AllTask = () => {
+  const authData = useContext(AuthContext);
+
   return (
-    <div className="bg-[#1C1C1C] p-6 rounded-2xl mt-5 shadow-lg">
-      {/* Header */}
-      <div className="flex justify-between text-gray-400 text-sm mb-4 px-2">
-        <h4>Employee</h4>
-        <h4>Task</h4>
-        <h4>Status</h4>
+    <div className="bg-[#1C1C1C] p-5 rounded mt-5">
+      <div className="bg-red-400 mb-2 py-2 px-4 flex justify-between rounded">
+        <h3 className="text-lg font-medium w-1/5 ">New Task</h3>
+        <h5 className="text-lg font-medium w-1/5 ">Active Task</h5>
+        <h5 className="text-lg font-medium w-1/5 ">Completed Task</h5>
+        <h5 className="text-lg font-medium w-1/5 ">Failed</h5>
       </div>
 
-      {/* Task Item */}
-      <div className="bg-white/5 hover:bg-white/10 transition-all mb-3 py-3 px-4 flex items-center justify-between rounded-xl border border-white/10">
-        <h2 className="text-white font-medium">Sandesh</h2>
-        <h3 className="text-gray-300">Make UI Design</h3>
-        <span className="bg-red-500/20 text-red-400 text-sm px-3 py-1 rounded-full">
-          Pending
-        </span>
-      </div>
-
-      {/* Task Item */}
-      <div className="bg-white/5 hover:bg-white/10 transition-all mb-3 py-3 px-4 flex items-center justify-between rounded-xl border border-white/10">
-        <h2 className="text-white font-medium">Sandesh</h2>
-        <h3 className="text-gray-300">Make UI Design</h3>
-        <span className="bg-blue-500/20 text-blue-400 text-sm px-3 py-1 rounded-full">
-          In Progress
-        </span>
-      </div>
-
-      {/* Task Item */}
-      <div className="bg-white/5 hover:bg-white/10 transition-all py-3 px-4 flex items-center justify-between rounded-xl border border-white/10">
-        <h2 className="text-white font-medium">Sandesh</h2>
-        <h3 className="text-gray-300">Make UI Design</h3>
-        <span className="bg-green-500/20 text-green-400 text-sm px-3 py-1 rounded-full">
-          Completed
-        </span>
+      <div className="">
+        {authData.employees.map(function (task) {
+          return (
+            <div className="border-2 border-emerald-500 mb-2 py-2 px-4 flex justify-between rounded">
+              <h2 className="text-lg font-medium w-1/5 ">{task.firstName}</h2>
+              <h3 className="text-lg font-medium w-1/5 text-blue-400">
+                {task.taskCounts.newTask}
+              </h3>
+              <h5 className="text-lg font-medium w-1/5 text-yellow-600">
+                {task.taskCounts.active}
+              </h5>
+              <h5 className="text-lg font-medium w-1/5 text-white">
+                {task.taskCounts.completed}
+              </h5>
+              <h5 className="text-lg font-medium w-1/5 text-red-600">
+                {task.taskCounts.completed}
+              </h5>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

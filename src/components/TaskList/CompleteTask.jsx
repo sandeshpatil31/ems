@@ -1,17 +1,17 @@
 import React from 'react'
 
-const CompleteTask = () => {
+const CompleteTask = ({data}) => {
   return (
     <div className="flex-shrink-0 w-[320px] p-5 bg-gradient-to-br from-blue-600 to-green-800 rounded-2xl shadow-lg hover:scale-[1.03] transition-all duration-300">
         <div className="flex justify-between">
           <span className="bg-yellow-500/20 text-yellow-300 text-xs px-3 py-1 rounded-full">
-            Urgent
+            {data.category}
           </span>
-          <span className="text-xs text-gray-200">15 April 2026</span>
+          <span className="text-xs text-gray-200">{data.date}</span>
         </div>
-        <h2 className="mt-4 text-xl font-semibold text-white">Fix UI Bugs</h2>
+        <h2 className="mt-4 text-xl font-semibold text-white">{data.taskTitle}</h2>
         <p className="text-sm text-gray-200 mt-2">
-          Improve responsiveness and layout issues.
+          {data.description}
         </p>
 
         <div className='mt-2'>

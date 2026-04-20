@@ -7,7 +7,6 @@ import { getLocalStorage } from "./utils/localStorage";
 import { AuthContext } from "./context/AuthProvider";
 import { data } from "autoprefixer";
 const App = () => {
-
   const [user, setUser] = useState();
   const authData = useContext(AuthContext);
   const [loggedInUserData, setLoggedInUserData] = useState(null);
@@ -15,31 +14,46 @@ const App = () => {
   useEffect(() => {
     const loggedInUser = localStorage.getItem("loggedInUser");
     if (loggedInUser) {
-      const userData = JSON.parse(loggedInUser)
-      setUser(userData.role)
-      setLoggedInUserData(userData.data)
+      const userData = JSON.parse(loggedInUser);
+      setUser(userData.role);
+      setLoggedInUserData(userData.data);
     }
-  },[]);
+  }, []);
 
   const handleLogin = (email, password) => {
-    if (email == "admin@gmail.com" && password == "123") {
+    // Admin login
+    if (email === "admin@gmail.com" && password === "123") {
       setUser("admin");
+
       localStorage.setItem("loggedInUser", JSON.stringify({ role: "admin" }));
-    } else if (authData) {
+
+      return;
+    }
+
+    // Employee login
+    if (authData?.employees) {
       const employee = authData.employees.find(
-        (e) => email == e.email && password == e.password,
+        (e) => e.email === email && e.password === password,
       );
+
       if (employee) {
         setUser("employee");
         setLoggedInUserData(employee);
+
         localStorage.setItem(
           "loggedInUser",
-          JSON.stringify({ role: "employee" }),
+          JSON.stringify({
+            role: "employee",
+            data: employee, // ✅ IMPORTANT
+          }),
         );
+
+        return;
       }
-    } else {
-      alert("Invalid Credentials");
     }
+
+    // Invalid credentials
+    alert("Invalid Credentials ❌");
   };
 
   return (
