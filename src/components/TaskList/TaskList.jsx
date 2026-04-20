@@ -9,11 +9,11 @@ const TaskList = ({ data }) => {
     <div
       id="tasklist"
       className="flex flex-wrap gap-6 w-full py-5 mt-10 px-2" >
-      {data.tasks.map((task, i) => {
-        if (task.active) return <AcceptTask key={i} data={task} />
-        if (task.newTask) return <NewTask key={i} data={task} />
-        if (task.completed) return <CompleteTask key={i} data={task} />
-        if (task.failed) return <FailedTask key={i} data={task} />
+      {data.tasks.map((elem, i) => {
+        if (elem.active) return <AcceptTask key={i} data={elem} />
+        if (elem.newTask) return <NewTask key={i} data={elem} />
+        if (elem.completed) return <CompleteTask key={i} data={elem} />
+        if (elem.failed) return <FailedTask key={i} data={elem} />
       })}
     </div>
   );
